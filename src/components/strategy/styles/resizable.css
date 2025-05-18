@@ -1,0 +1,45 @@
+
+/* Base styling for resize handles */
+.strategy-flow-container [data-panel-resize-handle-id] {
+  touch-action: none;
+  user-select: none;
+  width: 2px !important; /* Reduced width */
+}
+
+/* Make sure the react-flow pane doesn't interfere with dragging */
+.strategy-flow-container .react-flow__pane {
+  z-index: auto;
+}
+
+/* Style for the handle to make it more visible but smaller */
+.strategy-flow-container [data-panel-resize-handle-id] div {
+  width: 2px !important;
+}
+
+/* Improve grabbing behavior */
+.strategy-flow-container [data-panel-resize-handle-id]:hover {
+  cursor: col-resize;
+}
+
+/* Mobile-specific styling */
+@media (max-width: 768px) {
+  .strategy-flow-container [data-panel-resize-handle-id] {
+    width: 8px !important;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .strategy-flow-container [data-panel-resize-handle-id] div {
+    width: 8px !important;
+    height: 36px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(var(--border));
+  }
+  
+  /* Dark mode adjustments */
+  .dark .strategy-flow-container [data-panel-resize-handle-id] {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
