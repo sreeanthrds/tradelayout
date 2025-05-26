@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ onClick }) => {
       onClick={onClick}
     >
       <span className="text-xl md:text-2xl font-serif font-bold text-primary">
-        Trady
+        TradeLayout
       </span>
     </Link>
   );

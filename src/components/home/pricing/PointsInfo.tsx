@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const PointsInfo = () => {
     <div className="mt-16 p-6 bg-secondary/20 rounded-xl max-w-3xl mx-auto">
       <h3 className="text-xl font-bold mb-4 text-center">How Points Work</h3>
       <p className="text-foreground/70 mb-4">
-        Points are the currency within Trady that allow you to access premium features:
+        Points are the currency within TradeLayout that allow you to access premium features:
       </p>
       <ul className="space-y-2 mb-4">
         <li className="flex items-start">

@@ -1,4 +1,3 @@
-
 import { Node, Edge } from '@xyflow/react';
 import { toast } from '@/hooks/use-toast';
 import { indicatorConfig } from '../indicatorConfig';
@@ -57,7 +56,7 @@ export const exportStrategyToFile = (nodes: Node[], edges: Edge[], strategyName:
       id: `strategy-${Date.now()}`,
       lastModified: new Date().toISOString(),
       created: new Date().toISOString(),
-      description: "Trading strategy created with Trady"
+      description: "Trading strategy created with TradeLayout"
     };
     
     const blob = new Blob([JSON.stringify(strategy, null, 2)], { type: 'application/json' });

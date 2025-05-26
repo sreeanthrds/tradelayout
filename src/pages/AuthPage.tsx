@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -89,7 +88,7 @@ const AuthPage = () => {
       <div className="max-w-md w-full">
         <Card className="w-full">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Trady</CardTitle>
+            <CardTitle className="text-2xl">TradeLayout</CardTitle>
             <CardDescription>
               Please sign in to continue to the platform
             </CardDescription>

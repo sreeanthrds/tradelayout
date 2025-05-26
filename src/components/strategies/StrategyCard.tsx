@@ -71,7 +71,7 @@ const StrategyCard = ({
           <Link to={`/app/strategy-builder?id=${id}&name=${encodeURIComponent(name)}`}>Edit</Link>
         </Button>
         <Button asChild variant="outline" className="flex-1">
-          <Link to={`/app/backtesting/${id}`}>Test</Link>
+          <Link to={`/backtest-settings`}>Test</Link>
         </Button>
         <Button 
           variant="outline" 

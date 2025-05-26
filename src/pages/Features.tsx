@@ -145,7 +145,7 @@ const Features = () => {
                 <CarouselItem>
                   <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md mx-4">
                     <p className="text-lg mb-6 italic text-foreground/80">
-                      "Trady has completely transformed my approach to the market. The no-code strategy builder saved me countless hours."
+                      "TradeLayout has completely transformed my approach to the market. The no-code strategy builder saved me countless hours."
                     </p>
                     <div className="flex items-center">
                       <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">

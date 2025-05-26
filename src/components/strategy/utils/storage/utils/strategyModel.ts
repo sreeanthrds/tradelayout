@@ -1,4 +1,3 @@
-
 import { Node, Edge } from '@xyflow/react';
 
 /**
@@ -37,6 +36,6 @@ export const createStrategyObject = (
     name: strategyName,
     lastModified: now,
     created: existingCreationDate || now,
-    description: "Trading strategy created with Trady"
+    description: "Trading strategy created with TradeLayout"
   };
 };

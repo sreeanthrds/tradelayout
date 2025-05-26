@@ -25,7 +25,7 @@ const Index = () => {
         <Testimonials />
         <Pricing />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

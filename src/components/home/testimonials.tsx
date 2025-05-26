@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Users } from 'lucide-react';
 import { 
@@ -42,7 +41,7 @@ const TestimonialCard = ({ quote, author, role }: TestimonialProps) => (
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Trady saved me hours of manual testing and helped me find the edge I was missing in my strategies.",
+      quote: "TradeLayout saved me hours of manual testing and helped me find the edge I was missing in my strategies.",
       author: "Michael K.",
       role: "Day Trader"
     },

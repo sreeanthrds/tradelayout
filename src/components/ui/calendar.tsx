@@ -1,22 +1,76 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, DayPickerSingleProps } from "react-day-picker";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = DayPickerSingleProps & {
+  onSelect?: (date: Date | undefined) => void;
+};
 
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  selected,
+  onSelect,
   ...props
 }: CalendarProps) {
+  const [month, setMonth] = React.useState<Date>(() => {
+    if (selected instanceof Date) {
+      return selected;
+    }
+    return new Date();
+  });
+  
+  const handleMonthChange = (newMonth: Date) => {
+    setMonth(newMonth);
+  };
+
+  const handleYearChange = (year: string) => {
+    const newDate = new Date(month);
+    newDate.setFullYear(parseInt(year));
+    setMonth(newDate);
+  };
+
+  const handleMonthSelect = (monthIndex: string) => {
+    const newDate = new Date(month);
+    newDate.setMonth(parseInt(monthIndex));
+    setMonth(newDate);
+  };
+
+  const handleDaySelect = (date: Date | undefined) => {
+    if (onSelect) {
+      onSelect(date);
+    }
+  };
+
+  const years = Array.from({ length: 10 }, (_, i) => (new Date().getFullYear() - 5 + i).toString());
+  
+  // Format months in MMM format
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  // Group months into 2x2 grid
+  const monthGroups = [
+    months.slice(0, 3),
+    months.slice(3, 6),
+    months.slice(6, 9),
+    months.slice(9, 12)
+  ];
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
+      month={month}
+      onMonthChange={handleMonthChange}
+      selected={selected}
+      onSelect={handleDaySelect}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
@@ -52,8 +106,48 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ..._props }) => <ChevronLeft className="h-4 w-4" />,
-        IconRight: ({ ..._props }) => <ChevronRight className="h-4 w-4" />,
+        Caption: ({ displayMonth }) => (
+          <div className="flex flex-col gap-2 px-1 py-2">
+            <div className="flex justify-end">
+              <Select
+                value={displayMonth.getFullYear().toString()}
+                onValueChange={handleYearChange}
+              >
+                <SelectTrigger className="w-[100px]">
+                  <SelectValue placeholder="Select year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {years.map((year) => (
+                    <SelectItem key={year} value={year}>
+                      {year}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {monthGroups.map((group, groupIndex) => (
+                <div key={groupIndex} className="grid grid-cols-3 gap-1">
+                  {group.map((monthName, index) => {
+                    const monthIndex = groupIndex * 3 + index;
+                    return (
+                      <button
+                        key={monthName}
+                        onClick={() => handleMonthSelect(monthIndex.toString())}
+                        className={cn(
+                          "px-2 py-1 text-sm rounded hover:bg-accent",
+                          displayMonth.getMonth() === monthIndex && "bg-accent"
+                        )}
+                      >
+                        {monthName}
+                      </button>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+        ),
       }}
       {...props}
     />

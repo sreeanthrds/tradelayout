@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Linkedin, MessageSquare } from 'lucide-react';
@@ -12,7 +11,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="inline-block mb-4">
               <span className="text-xl font-bold bg-gradient-to-r from-success to-success/80 bg-clip-text text-transparent">
-                Trady
+                TradeLayout
               </span>
             </Link>
             <p className="text-foreground/70 mb-4 max-w-xs">
@@ -131,7 +130,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/60 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Trady. Built for Indian Market Traders.
+            © {new Date().getFullYear()} TradeLayout. Built for Indian Market Traders.
           </p>
           <div className="text-foreground/60 text-sm">
             All trading involves risk. Performance results are not guaranteed.

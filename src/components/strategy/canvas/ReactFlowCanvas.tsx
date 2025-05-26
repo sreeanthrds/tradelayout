@@ -8,7 +8,7 @@ import { useViewportUtils } from './useViewportUtils';
 import { NodeTypesObj } from '../nodes/nodeTypes';
 import { EdgeTypesObj } from '../edges/edgeTypes';
 import '../styles/index.css';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export interface ReactFlowCanvasProps {
   flowRef: React.RefObject<HTMLDivElement>;
@@ -56,6 +56,7 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
   const {
     fitView
   } = useViewportUtils();
+  const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
   const currentStrategyId = searchParams.get('id') || '';
@@ -173,6 +174,8 @@ const ReactFlowCanvas: React.FC<ReactFlowCanvasProps> = ({
   // Add logging for backtest panel toggle
   const handleToggleBacktest = useCallback(() => {
     console.log("Toggle backtest called from ReactFlowCanvas");
+    // navigate to /backtest-settings
+    navigate('/backtest-settings');
     if (toggleBacktest) {
       toggleBacktest();
     }

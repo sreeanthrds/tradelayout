@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/ui/navbar';
 import Footer from '@/components/ui/footer';
@@ -33,7 +32,7 @@ const PricingPage = () => {
             <div className="bg-secondary/20 rounded-xl p-6 animate-slide-up">
               <h3 className="text-xl font-semibold mb-3">How do points work?</h3>
               <p className="text-foreground/70">
-                Points are Trady's in-platform currency. You can use them to access premium features like backtesting sessions, advanced indicators, and report exports.
+                Points are TradeLayout's in-platform currency. You can use them to access premium features like backtesting sessions, advanced indicators, and report exports.
               </p>
             </div>
             
@@ -74,7 +73,7 @@ const PricingPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

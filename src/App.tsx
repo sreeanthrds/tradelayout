@@ -32,6 +32,8 @@ import Account from "./pages/Account";
 
 // Documentation Page
 import Documentation from './pages/Documentation';
+import BacktestingSettings from "./pages/BacktestingSettings";
+import BacktestResults from "./pages/BacktestResults";
 
 // Create query client with error handling
 const queryClient = new QueryClient({
@@ -102,6 +104,11 @@ const App = () => {
                 
                 {/* Catch-all */}
                 <Route path="*" element={<WebsiteLayout><NotFound /></WebsiteLayout>} />
+
+                {/* <Route path="/test-page" element={<WebsiteLayout><Features /></WebsiteLayout>} />
+                // */}
+                 <Route path="/backtest-settings" element={<BacktestingSettings />} />
+                 <Route path="/backtest-results" element={<BacktestResults />} />
               </Routes>
             </BrowserRouter>
           </TooltipProvider>
